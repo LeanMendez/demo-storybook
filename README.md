@@ -1,59 +1,40 @@
-# DemoStorybook
+# demo-storybook
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.30.
+Aplicación de demostración para el workshop **Storybook + IA — Design Systems que no se rompen**.
 
-## Development server
+Es un mini design system en **Angular 20** (zoneless + signals, standalone) pensado para mostrar, en vivo, cómo Storybook documenta y testea componentes y cómo la IA acelera la creación de stories.
 
-To start a local development server, run:
+## Design system
 
-```bash
-ng serve
-```
+Tres componentes que se componen entre sí, en `src/app/design-system/`:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+| Componente | Qué muestra |
+|------------|-------------|
+| **Badge** | Átomo con variantes, tamaños y dot. Ideal para Controls + autodocs. |
+| **UserCard** | Compone `Badge`. Selección con click y teclado (accesible). Play function. |
+| **UserList** | Compone `UserCard`. Estados **loading / error / empty / ready**. |
 
-## Code scaffolding
+Cada componente tiene su `.ts`, `.html`, `.scss`, `.spec.ts` y `.stories.ts` al lado.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Comandos
 
-```bash
-ng generate component component-name
-```
+| Acción | Comando |
+|--------|---------|
+| Dev server | `npm start` |
+| Build | `npm run build` |
+| Tests (headless) | `ng test --watch=false --browsers=ChromeHeadless` |
+| Lint | `ng lint` |
+| Storybook (dev) | `npm run storybook` |
+| Build Storybook | `npm run build-storybook` |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Stack
 
-```bash
-ng generate --help
-```
+- **Angular 20** — standalone, **zoneless** (`provideZonelessChangeDetection`), signals, OnPush.
+- **Storybook 10** (`@storybook/angular`) con addons **a11y** y **docs** (Compodoc).
+- **Karma + Jasmine** para unit tests · **ESLint** (`@angular-eslint`) · **Prettier**.
 
-## Building
+> ⚠️ **Zoneless + Storybook:** los targets `storybook` / `build-storybook` en `angular.json` necesitan `"experimentalZoneless": true`. Sin eso, el build falla con *"Can't resolve 'zone.js'"*.
 
-To build the project run:
+## Generar stories con IA
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+El repo incluye una skill de Claude Code, `/storybook-stories <ruta-al-componente>`, que genera stories CSF3 siguiendo las buenas prácticas del proyecto (argTypes detallados, cobertura de estados, play functions, sin alucinar props). Ver `.claude/skills/storybook-stories/`.
