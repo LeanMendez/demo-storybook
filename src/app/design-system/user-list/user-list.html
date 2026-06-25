@@ -1,0 +1,26 @@
+@if (loading()) {
+  <div class="user-list__state" aria-busy="true">
+    <span class="user-list__spinner"></span>
+    <p>Cargando usuarios…</p>
+  </div>
+} @else if (error()) {
+  <div class="user-list__state user-list__state--error" role="alert">
+    <p class="user-list__state-title">No se pudieron cargar los usuarios</p>
+    <p class="user-list__state-detail">{{ error() }}</p>
+  </div>
+} @else if (isEmpty()) {
+  <div class="user-list__state" role="status">
+    <p class="user-list__state-title">No hay usuarios para mostrar</p>
+    <p class="user-list__state-detail">Probá ajustar los filtros o invitá a alguien.</p>
+  </div>
+} @else {
+  <div class="user-list" role="list">
+    @for (user of users(); track user.id) {
+      <app-user-card
+        [user]="user"
+        [selected]="user.id === selectedId()"
+        (cardClick)="select($event)"
+      />
+    }
+  </div>
+}

@@ -1,0 +1,47 @@
+.user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.user-list__state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 24px;
+  border: 1px dashed #e5e7eb;
+  border-radius: 12px;
+  color: #6b7280;
+  text-align: center;
+}
+.user-list__state--error {
+  border-color: #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+}
+.user-list__state-title {
+  margin: 0;
+  font-weight: 600;
+  color: #374151;
+}
+.user-list__state--error .user-list__state-title {
+  color: #991b1b;
+}
+.user-list__state-detail {
+  margin: 0;
+  font-size: 13px;
+}
+.user-list__spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: user-list-spin 0.8s linear infinite;
+}
+@keyframes user-list-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
