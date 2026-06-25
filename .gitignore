@@ -45,6 +45,11 @@ __screenshots__/
 .claude/settings.local.json
 CLAUDE.local.md
 
+# Storybook
+*storybook.log
+storybook-static
+documentation.json
+
 # System files
 .DS_Store
 Thumbs.db
