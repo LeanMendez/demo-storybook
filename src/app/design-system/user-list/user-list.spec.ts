@@ -4,7 +4,7 @@ import { User } from '../user-card/user-card';
 import { UserList } from './user-list';
 
 const users: User[] = [
-  { id: '1', name: 'María García', email: 'm@e.com', role: 'Dev', status: 'active' },
+  { id: '1', name: 'Josefina García', email: 'm@e.com', role: 'Dev', status: 'active' },
   { id: '2', name: 'Carlos López', email: 'c@e.com', role: 'UX', status: 'inactive' },
 ];
 

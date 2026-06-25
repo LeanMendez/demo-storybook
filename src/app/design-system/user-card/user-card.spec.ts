@@ -4,8 +4,8 @@ import { User, UserCard } from './user-card';
 
 const baseUser: User = {
   id: '1',
-  name: 'María García',
-  email: 'maria.garcia@empresa.com',
+  name: 'Josefina García',
+  email: 'josefina.garcia@empresa.com',
   role: 'Senior Frontend Developer',
   status: 'active',
 };
@@ -25,16 +25,16 @@ describe('UserCard', () => {
   it('renders name and email', () => {
     fixture.detectChanges();
     const el = fixture.nativeElement as HTMLElement;
-    expect(el.querySelector('.user-card__name')?.textContent).toContain('María García');
+    expect(el.querySelector('.user-card__name')?.textContent).toContain('Josefina García');
     expect(el.querySelector('.user-card__email')?.textContent).toContain(
-      'maria.garcia@empresa.com',
+      'josefina.garcia@empresa.com',
     );
   });
 
   it('shows initials when there is no avatar', () => {
     fixture.detectChanges();
     expect(fixture.nativeElement.querySelector('.user-card__initials')?.textContent).toContain(
-      'MG',
+      'JG',
     );
   });
 

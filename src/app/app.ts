@@ -7,11 +7,11 @@ type DemoState = 'ready' | 'loading' | 'empty' | 'error';
 const MOCK_USERS: User[] = [
   {
     id: '1',
-    name: 'María García',
-    email: 'maria.garcia@empresa.com',
+    name: 'Josefina García',
+    email: 'josefina.garcia@empresa.com',
     role: 'Senior Frontend Developer',
     status: 'active',
-    avatarUrl: 'https://i.pravatar.cc/150?u=maria',
+    avatarUrl: 'https://i.pravatar.cc/150?u=jose',
   },
   {
     id: '2',
