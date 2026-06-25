@@ -28,8 +28,8 @@
   </section>
 
   @if (selected(); as user) {
-    <p class="page__selection" role="status">
-      Seleccionado: <strong>{{ user.name }}</strong> ({{ user.email }})
-    </p>
+    <section class="page__details">
+      <app-user-card-details [user]="user" />
+    </section>
   }
 </main>
