@@ -16,28 +16,32 @@ const meta: Meta<Badge> = {
     variant: {
       control: 'select',
       options: ['success', 'warning', 'error', 'info', 'neutral'],
-      description: 'Variante visual que indica el tipo de estado',
+      description:
+        'Color semántico del badge. Usá `success` para estados positivos (activo, aprobado), `warning` para pendientes, `error` para fallos, `info` para novedades y `neutral` como default sin semántica.',
       table: { defaultValue: { summary: 'neutral' }, category: 'Apariencia' },
     },
     size: {
       control: 'radio',
       options: ['sm', 'md', 'lg'],
-      description: 'Tamaño del badge',
+      description:
+        'Escala del badge. `sm` para uso inline junto a títulos o dentro de cards, `md` como tamaño general, `lg` para badges destacados o hero sections.',
       table: { defaultValue: { summary: 'md' }, category: 'Apariencia' },
     },
     showDot: {
       control: 'boolean',
-      description: 'Muestra un indicador dot junto al texto',
-      table: { category: 'Apariencia' },
+      description:
+        'Agrega un círculo de color antes del texto para reforzar visualmente el estado. Recomendado cuando el badge se usa sin contexto adicional.',
+      table: { defaultValue: { summary: 'false' }, category: 'Apariencia' },
     },
     label: {
       control: 'text',
-      description: 'Texto del badge',
-      table: { category: 'Contenido' },
+      description: 'Texto visible del badge. Mantenerlo corto (1-3 palabras) para no romper el layout.',
+      table: { defaultValue: { summary: 'Badge' }, category: 'Contenido' },
     },
     ariaLabel: {
       control: 'text',
-      description: 'Label de accesibilidad (cae a `label` si no se define)',
+      description:
+        'Override del texto que leen los screen readers. Si no se define, se usa el valor de `label`. Útil cuando el label visual es una abreviatura o ícono.',
       table: { category: 'Accesibilidad' },
     },
   },

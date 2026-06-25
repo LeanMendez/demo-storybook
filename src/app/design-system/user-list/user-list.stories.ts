@@ -39,12 +39,31 @@ const meta: Meta<UserList> = {
     userSelected: fn(),
   },
   argTypes: {
-    loading: { control: 'boolean', description: 'Muestra el estado de carga' },
+    users: {
+      control: false,
+      description:
+        'Array de objetos `User` a renderizar. Cuando está vacío (y no hay loading ni error) se muestra el estado empty.',
+      table: { category: 'Datos' },
+    },
+    loading: {
+      control: 'boolean',
+      description:
+        'Muestra un spinner con mensaje de carga. Tiene prioridad sobre los demás estados: si es `true`, no se muestran ni error ni la lista.',
+      table: { defaultValue: { summary: 'false' }, category: 'Estado' },
+    },
     error: {
       control: 'text',
-      description: 'Mensaje de error; si existe muestra el estado de error',
+      description:
+        'Mensaje de error a mostrar. Si tiene valor (y `loading` es false), se muestra un banner de error en lugar de la lista.',
+      table: { defaultValue: { summary: 'null' }, category: 'Estado' },
     },
-    userSelected: { action: 'userSelected', description: 'Se emite al seleccionar un usuario' },
+    userSelected: {
+      action: 'userSelected',
+      control: false,
+      description:
+        'Se emite con el objeto `User` cuando se hace click en una card. El consumidor puede usarlo para mostrar un detalle o navegar.',
+      table: { category: 'Eventos' },
+    },
   },
 };
 

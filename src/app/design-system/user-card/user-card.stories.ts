@@ -21,18 +21,29 @@ const meta: Meta<UserCard> = {
     cardClick: fn(),
   },
   argTypes: {
+    user: {
+      control: false,
+      description: 'Objeto `User` con los datos a mostrar (nombre, email, rol, status, avatar).',
+      table: { category: 'Datos' },
+    },
     selected: {
       control: 'boolean',
-      description: 'Indica si la card está seleccionada',
+      description:
+        'Resalta la card con borde azul y fondo claro. Controlado por el componente padre (UserList) al hacer click.',
+      table: { defaultValue: { summary: 'false' }, category: 'Estado' },
     },
     compact: {
       control: 'boolean',
-      description: 'Modo compacto con menos espacio y detalle',
+      description:
+        'Reduce padding y oculta el rol del usuario. Útil en sidebars o listas densas donde el espacio es limitado.',
+      table: { defaultValue: { summary: 'false' }, category: 'Apariencia' },
     },
     cardClick: {
       action: 'cardClick',
       control: false,
-      description: 'Se emite al hacer click (o Enter/Espacio) en la card',
+      description:
+        'Se emite con el objeto `User` al hacer click, Enter o Espacio sobre la card. El padre lo usa para manejar la selección.',
+      table: { category: 'Eventos' },
     },
   },
 };
