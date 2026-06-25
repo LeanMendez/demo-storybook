@@ -38,6 +38,13 @@ testem.log
 /typings
 __screenshots__/
 
+# Linters
+.eslintcache
+
+# Claude Code (local/personal overrides only — .claude/settings.json is shared)
+.claude/settings.local.json
+CLAUDE.local.md
+
 # System files
 .DS_Store
 Thumbs.db
