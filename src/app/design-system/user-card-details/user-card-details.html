@@ -1,0 +1,30 @@
+<section class="user-details" aria-label="Detalle de usuario">
+  <div class="user-details__header">
+    <div class="user-details__avatar">
+      @if (user().avatarUrl) {
+        <img [src]="user().avatarUrl" [alt]="user().name" class="user-details__img" />
+      } @else {
+        <span class="user-details__initials">{{ initials() }}</span>
+      }
+    </div>
+    <div class="user-details__title">
+      <h3 class="user-details__name">{{ user().name }}</h3>
+      <app-badge [label]="statusLabel()" [variant]="statusVariant()" [showDot]="true" size="sm" />
+    </div>
+  </div>
+
+  <dl class="user-details__fields">
+    <div class="user-details__field">
+      <dt>Email</dt>
+      <dd>{{ user().email }}</dd>
+    </div>
+    <div class="user-details__field">
+      <dt>Rol</dt>
+      <dd>{{ user().role }}</dd>
+    </div>
+    <div class="user-details__field">
+      <dt>ID</dt>
+      <dd class="user-details__mono">{{ user().id }}</dd>
+    </div>
+  </dl>
+</section>

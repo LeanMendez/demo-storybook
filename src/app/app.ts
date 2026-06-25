@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { User } from './design-system/user-card/user-card';
+import { UserCardDetails } from './design-system/user-card-details/user-card-details';
 import { UserList } from './design-system/user-list/user-list';
 
 type DemoState = 'ready' | 'loading' | 'empty' | 'error';
@@ -34,7 +35,7 @@ const DEMO_STATES: readonly DemoState[] = ['ready', 'loading', 'empty', 'error']
 @Component({
   selector: 'app-root',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [UserList],
+  imports: [UserCardDetails, UserList],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
