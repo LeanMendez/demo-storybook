@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Purpose
+
+Demo app for a live workshop on **Storybook + IA — design systems que no se rompen**. The core is a small design system in `src/app/design-system/`: `Badge` → `UserCard` (composes Badge) → `UserList` (composes UserCard, with loading/error/empty/ready states). Components are deliberately rich in states and accessible because they'll later be documented and tested with Storybook (not yet installed). Keep them didactic, idiomatic Angular 20, and a11y-correct.
+
 ## Stack
 
 Angular 20 single application (not a workspace). Standalone components — there are no NgModules; bootstrapping is `bootstrapApplication` in `src/main.ts`, providers live in `src/app/app.config.ts`. Component selector prefix is `app`. Package manager is npm.
